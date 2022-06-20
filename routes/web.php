@@ -21,6 +21,8 @@ Route::get('/', function () {
 
 
 Route::get('/', function () {
-    return view('theme.back.app');
+
+    //return view('theme.back.app');
+    return view('theme.back.login');
 });
 
