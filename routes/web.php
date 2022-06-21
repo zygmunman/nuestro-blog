@@ -22,7 +22,11 @@ Route::get('/', function () {
 
 Route::get('/', function () {
 
-    //return view('theme.back.app');
-    return view('theme.back.login');
+    return view('welcome');
+});
+
+
+Route::get('mi-cuenta', function () {
+    return view('welcome');
 });
 
