@@ -45,6 +45,9 @@
                         <span class="db"><img src="{{asset("assets/back/images/logo.png")}}" alt="logo" /></span>
                     </div>
                     <!-- Form -->
+                    @if ($errors->any())
+                        <x-alert tipo="danger" :mensaje="$errors"/>
+                    @endif
                     <form  action="{{route("login")}}"  id="loginform" class="form-horizontal m-t-20" method="POST">
                         @csrf
                         <div class="row p-b-30">
@@ -53,7 +56,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-success text-white" id="basic-addon1"><i class="ti-user"></i></span>
                                     </div>
-                                    <input type="email" name="email" class="form-control form-control-lg" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required="">
+                                    <input type="email" name="email" class="form-control form-control-lg" value="{{old("email")}}" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" required="">
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
