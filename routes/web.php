@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MiCuentaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,5 @@ Route::get('/', function () {
 });
 
 
-Route::get('mi-cuenta', function () {
-    return view('welcome');
-});
+Route::get('mi-cuenta', [MiCuentaController::class, 'index'])->middleware('auth')->name('mi-cuenta');
 
