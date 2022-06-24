@@ -38,11 +38,14 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
         Fortify::loginView(fn () => view('theme.back.login'));
 
+        /** Personalización de la librería Fortify para nuestra app en concreto */
+
         Fortify::authenticateUsing(function (Request $request) {
             $usuario = Usuario::where('email', $request->email)->first();
             if ($usuario && Hash::check($request->password, $usuario->password)) {
-                $roles = $usuario->roles()->get();
-                if ($roles->isNotEmpty()) {
+                $roles = $usuario->roles()->first();
+                if ($roles) {
+                    $request->session()->put('rol_slug', $roles->slug);
                     return $usuario;
                 }
                 return false;

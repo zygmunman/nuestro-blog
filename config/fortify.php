@@ -102,9 +102,19 @@ return [
     |
     */
 
+    /* Esto es lo que había originalmente; lo he cambiado por el código de abajo 112-115 para
+     que no saltara el error 429 en el segundo intento de loguearme.
+
     'limiters' => [
         'login' => 'login',
         'two-factor' => 'two-factor',
+    ],
+    */
+
+    'limiters' => [
+
+        'login' => 5,
+        'two-factor' => 5,
     ],
 
     /*
