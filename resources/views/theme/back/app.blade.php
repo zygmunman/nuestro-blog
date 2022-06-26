@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html dir="ltr" lang="en">
     <head>
         <meta charset="utf-8">
@@ -13,11 +13,12 @@
         <!-- Custom CSS -->
         <!-- Custom CSS -->
         <link href="{{asset("assets/back/css/style.min.css")}}" rel="stylesheet">
+        <link href="{{asset("assets/back/css/nuestro-blog.css")}}" rel="stylesheet">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+      <![endif]-->
     </head>
     <body>
         <!-- ============================================================== -->
@@ -56,7 +57,6 @@
                 <!-- ============================================================== -->
                 <div class="container-fluid">
                 @yield('contenido')
-                    <h1>Hola, Bienvenid@s a la página de Inicio!!!</h1>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Container fluid  -->
@@ -92,12 +92,16 @@
         <script src="{{asset("assets/back/js/sidebarmenu.js")}}"></script>
         <!--Plugins-->
         <script src="{{asset("assets/back/libs/jquery-validation/dist/jquery.validate.min.js")}}"></script>
-        <script src="{{asset("assets/back/libs/jquery-validation/localization/messages_es.js")}}"></script>
+        <script src="{{asset("assets/back/libs/jquery-validation/dist/localization/messages_es.js")}}"></script>
+        <script src="{{asset("assets/back/libs/jquery.flot.tooltip/js/jquery.flot.tooltip.min.js")}}"></script>
+        <script src="{{asset("assets/back/libs/jquery.flot.tooltip/js/jquery.flot.tooltip.source.js")}}"></script>
         <!--Plugins de páginas específicas -->
         @yield('scriptsPlugins')
         <!--Scripts de páginas específicas-->
         @yield('scripts')
         <!--Custom JavaScript-->
         <script src="{{asset("assets/back/js/custom.min.js")}}"></script>
+        <script src="{{asset("assets/back/js/nuestro-blog.js")}}"></script>
+    </body>
 
-    </html
+</html

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Http\Request;
 use Laravel\Fortify\Fortify;
+use Illuminate\Support\Facades\Session;
 
 
 class FortifyServiceProvider extends ServiceProvider
@@ -46,6 +47,7 @@ class FortifyServiceProvider extends ServiceProvider
                 $roles = $usuario->roles()->first();
                 if ($roles) {
                     $request->session()->put('rol_slug', $roles->slug);
+                    $request->session()->put('rol_id', $roles->id);
                     return $usuario;
                 }
                 return false;
