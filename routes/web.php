@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\MenuController;
 use App\Http\Controllers\MiCuentaController;
@@ -30,6 +31,9 @@ Route::get('/', function () {
 
 Route::get('mi-cuenta', [MiCuentaController::class, 'index'])->middleware('auth')->name('mi-cuenta');
 Route::group(['prefix' => 'admin-backend', 'middleware' => ['auth', 'superadministrador']], function () {
+
+    Route::get('', [DashboardController::class, 'index'])->name('dashboard');
+
     /**RUTAS DEL MENÚ */
     Route::get('menu', [MenuController::class, 'index'])->name('menu');
     Route::get('menu/crear', [MenuController::class, 'crear'])->name('menu.crear');

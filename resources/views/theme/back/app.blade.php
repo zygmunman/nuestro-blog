@@ -9,10 +9,12 @@
         <meta name="author" content="">
         <!-- Favicon icon -->
         <link rel="icon" type="image/png" sizes="16x16" href="{{asset("assets/back/images/favicon.png")}}">
-        <title>@yield('titulo', 'Inicio') | Nuestro-Blog</title>
+        <title>@yield('titulo', 'Dashboard') | Nuestro-Blog</title>
         <!-- Custom CSS -->
         <!-- Custom CSS -->
         <link href="{{asset("assets/back/css/style.min.css")}}" rel="stylesheet">
+        <!--CSS Dinámico-->
+        @yield('styles')
         <link href="{{asset("assets/back/css/nuestro-blog.css")}}" rel="stylesheet">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>

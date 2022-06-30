@@ -42,7 +42,7 @@ class MenuController extends Controller
     {
         $validado = $request->validated();
         Menu::create($validado);
-        return redirect()->route('menu.crear')->with('mensaje', 'Menú guardado correctamente');
+        return redirect()->route('menu.crear')->with('mensaje', 'Menú guardado con éxito');
     }
 
     /**
@@ -64,7 +64,8 @@ class MenuController extends Controller
      */
     public function editar($id)
     {
-        //
+        $data = Menu::findOrFail($id);
+        return view('theme.back.menu.editar', compact('data'));
     }
 
     /**
@@ -74,9 +75,10 @@ class MenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function actualizar(Request $request, $id)
+    public function actualizar(ValidacionMenu $request, $id)
     {
-        //
+        Menu::findOrFail($id)->update($request->validated());
+        return redirect()->route('menu')->with('mensaje', 'Menú actualizado con éxito');
     }
 
     /**
@@ -87,6 +89,7 @@ class MenuController extends Controller
      */
     public function eliminar($id)
     {
-        //
+        Menu::destroy($id);
+        return redirect()->route('menu')->with('mensaje', 'Menú eliminado con éxito');
     }
 }
