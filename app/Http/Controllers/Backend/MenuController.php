@@ -45,16 +45,6 @@ class MenuController extends Controller
         return redirect()->route('menu.crear')->with('mensaje', 'Menú guardado con éxito');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function guardarOrden($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -91,5 +81,22 @@ class MenuController extends Controller
     {
         Menu::destroy($id);
         return redirect()->route('menu')->with('mensaje', 'Menú eliminado con éxito');
+    }
+
+     /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function guardarOrden(Request $request)
+    {
+        if ($request->ajax()) {
+            Menu::guardarOrden($request->menu);
+            return response()->json(['respuesta' => 'ok']);
+        } else {
+            abort(404);
+        }
+
     }
 }

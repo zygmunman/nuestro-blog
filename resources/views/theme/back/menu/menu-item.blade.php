@@ -6,7 +6,7 @@
             <form action="{{route("menu.eliminar", $item["id"])}}" class="form-eliminar-menu d-inline" method="POST">
                 @csrf @method('delete')
                 <button type="button" class="btn-accion-tabla float-right boton-eliminar-menu" data-toggle="tooltip" title="Eliminar este menú"><i class="text-danger fas fa-trash"></i></button>
-               </form>
+            </form>
         </div>
 </li>
 @else
